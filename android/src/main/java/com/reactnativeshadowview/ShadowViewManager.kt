@@ -6,7 +6,7 @@ import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
 import com.facebook.react.uimanager.annotations.ReactProp
 
-class ShadowViewViewManager : SimpleViewManager<View>() {
+class ShadowViewManager : SimpleViewManager<View>() {
   override fun getName() = "ShadowViewView"
 
   override fun createViewInstance(reactContext: ThemedReactContext): View {

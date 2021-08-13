@@ -5,8 +5,7 @@ type ShadowViewProps = {
   style: ViewStyle;
 };
 
-export const ShadowViewViewManager = requireNativeComponent<ShadowViewProps>(
-'ShadowViewView'
-);
+export const ShadowViewViewManager =
+  requireNativeComponent<ShadowViewProps>('ShadowViewView');
 
 export default ShadowViewViewManager;
