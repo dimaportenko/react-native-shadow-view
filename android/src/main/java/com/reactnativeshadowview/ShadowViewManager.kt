@@ -1,20 +1,27 @@
 package com.reactnativeshadowview
 
-import android.graphics.Color
-import android.view.View
-import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewGroupManager
+import com.facebook.react.bridge.ReadableMap
+
 import com.facebook.react.uimanager.annotations.ReactProp
 
-class ShadowViewManager : SimpleViewManager<View>() {
-  override fun getName() = "ShadowViewView"
 
-  override fun createViewInstance(reactContext: ThemedReactContext): View {
-    return View(reactContext)
+class ShadowViewManager(
+  reactContext: ReactApplicationContext
+): ViewGroupManager<ShadowView>() {
+
+  override fun getName(): String {
+    return "ShadowViewNative"
   }
 
-  @ReactProp(name = "color")
-  fun setColor(view: View, color: String) {
-    view.setBackgroundColor(Color.parseColor(color))
+  override fun createViewInstance(context: ThemedReactContext): ShadowView {
+    return ShadowView(context)
+  }
+
+  @ReactProp(name = "shadowProps")
+  fun setShadowProps(view: ShadowView, shadowProps: ReadableMap?) {
+    view.setShadowProps(shadowProps)
   }
 }

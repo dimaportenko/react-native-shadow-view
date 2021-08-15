@@ -12,6 +12,6 @@ class ShadowViewPackage : ReactPackage {
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
-        return listOf(ShadowViewManager())
+        return listOf(ShadowViewManager(reactContext))
     }
 }
