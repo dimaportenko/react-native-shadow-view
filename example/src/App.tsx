@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { ShadowView } from 'react-native-shadow-view';
+import { ShadowView } from '@dimaportenko/react-native-shadow-view';
 
 export default function App() {
   return (

@@ -5,13 +5,13 @@ React Native library with Android native view which supports same shadows styles
 ## Installation
 
 ```sh
-npm install react-native-shadow-view
+npm install @dimaportenko/react-native-shadow-view
 ```
 
 ## Usage
 
 ```js
-import { ShadowView } from 'react-native-shadow-view';
+import { ShadowView } from '@dimaportenko/react-native-shadow-view';
 
 // ...
 
