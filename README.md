@@ -1,6 +1,6 @@
 # react-native-shadow-view
 
-React Native library with Android native view which supports same shadows styles as iOS 
+React Native library with Android native view which supports same shadows styles as iOS
 
 ## Installation
 
@@ -11,11 +11,30 @@ npm install react-native-shadow-view
 ## Usage
 
 ```js
-import ShadowView from "react-native-shadow-view";
+import { ShadowView } from 'react-native-shadow-view';
 
 // ...
 
-const result = await ShadowView.multiply(3, 7);
+<ShadowView style={[styles.box, styles.shadow]} />
+
+// ...
+const styles = StyleSheet.create({
+  box: {
+    width: 60,
+    height: 60,
+    marginVertical: 20,
+    backgroundColor: 'green',
+  },
+  shadow: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 2,
+      height: 4,
+    },
+    shadowOpacity: 0.6,
+    shadowRadius: 4.65,
+  },
+});
 ```
 
 ## Contributing
