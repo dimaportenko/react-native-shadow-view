@@ -1,0 +1,18 @@
+name: publish
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish to npm 🚢📦
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12.x
+      - run: npx yarn bootstrap
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
