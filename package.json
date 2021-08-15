@@ -1,5 +1,5 @@
 {
-  "name": "react-native-shadow-view",
+  "name": "@dimaportenko/react-native-shadow-view",
   "version": "0.1.0",
   "description": "React Native library with Android native view which supports same shadows styles as iOS ",
   "main": "lib/commonjs/index",
