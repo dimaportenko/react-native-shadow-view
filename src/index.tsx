@@ -3,11 +3,11 @@ import {
   Platform,
   processColor,
   ProcessedColorValue,
-  requireNativeComponent,
   StyleSheet,
   ViewProps,
   View,
 } from 'react-native';
+import ShadowComponent from './nativeComponent';
 
 /**
  * Composes `View`.
@@ -16,7 +16,7 @@ import {
  * - borderRadius: number
  * - resizeMode: 'cover' | 'contain' | 'stretch'
  */
-type ShadowProps =
+export type ShadowProps =
   | {
       shadowColor?: ProcessedColorValue | null | undefined;
       shadowOffset?: {
@@ -27,12 +27,6 @@ type ShadowProps =
       shadowRadius?: number;
     }
   | undefined;
-
-const ShadowComponent = requireNativeComponent<
-  {
-    shadowProps: ShadowProps;
-  } & ViewProps
->('ShadowViewNative');
 
 type Props = ViewProps;
 
@@ -51,6 +45,28 @@ export const ShadowView: FC<Props> = ({ children, style, ...otherProps }) => {
     shadowOpacity: flattenStyles.shadowOpacity,
     shadowRadius: flattenStyles.shadowRadius,
   };
+
+  if (
+    flattenStyles.borderRadius ||
+    flattenStyles.borderBottomRightRadius ||
+    flattenStyles.borderBottomLeftRadius ||
+    flattenStyles.borderTopLeftRadius ||
+    flattenStyles.borderTopRightRadius
+  ) {
+    return (
+      <ShadowComponent
+        {...otherProps}
+        shadowProps={shadowStyle}
+        // eslint-disable-next-line react-native/no-inline-styles
+        style={[style, { backgroundColor: 'transparent' }]}
+      >
+        <View {...otherProps} style={style}>
+          {children}
+        </View>
+      </ShadowComponent>
+    );
+  }
+
   return (
     <ShadowComponent {...otherProps} shadowProps={shadowStyle} style={style}>
       {children}

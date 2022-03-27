@@ -20,7 +20,7 @@ class ShadowView(
         shadow_with_content = true
         shadow_with_css_scale = true
         shadow_with_dpi_scale = true
-        shadow_cast_only_background = true
+        shadow_cast_only_background = false
         shadow_x_shift = 0f
         shadow_y_shift = 0f
         shadow_radius = 0f
