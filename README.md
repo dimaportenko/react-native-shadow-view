@@ -1,6 +1,6 @@
 # react-native-shadow-view
 
-React Native library with Android native view which supports same shadows styles as iOS
+React Native library with Android native view which supports same shadows styles as iOS. Based on the https://github.com/L-Briand/ShadowLayout solution for Android. 
 
 ## Installation
 
