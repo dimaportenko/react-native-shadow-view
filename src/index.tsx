@@ -57,8 +57,7 @@ export const ShadowView: FC<Props> = ({ children, style, ...otherProps }) => {
       <ShadowComponent
         {...otherProps}
         shadowProps={shadowStyle}
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={[style, { backgroundColor: 'transparent' }]}
+        style={[style, styles.transparent]}
       >
         <View {...otherProps} style={style}>
           {children}
@@ -73,3 +72,7 @@ export const ShadowView: FC<Props> = ({ children, style, ...otherProps }) => {
     </ShadowComponent>
   );
 };
+
+const styles = StyleSheet.create({
+  transparent: { backgroundColor: 'transparent' },
+});
