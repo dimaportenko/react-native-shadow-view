@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ViewProps,
   View,
+  ViewStyle,
 } from 'react-native';
 import ShadowComponent from './nativeComponent';
 
@@ -30,6 +31,24 @@ export type ShadowProps =
 
 type Props = ViewProps;
 
+export const getShadowPropsFromStyle = (flattenStyles: ViewStyle) => {
+  if (
+    (flattenStyles.shadowOffset ||
+      flattenStyles.shadowOpacity ||
+      flattenStyles.shadowRadius) &&
+    !flattenStyles.shadowColor
+  ) {
+    flattenStyles.shadowColor = '#000000';
+  }
+  const shadowStyle: ShadowProps = {
+    shadowColor: processColor(flattenStyles.shadowColor),
+    shadowOffset: flattenStyles.shadowOffset,
+    shadowOpacity: flattenStyles.shadowOpacity,
+    shadowRadius: flattenStyles.shadowRadius,
+  };
+  return shadowStyle;
+};
+
 export const ShadowView: FC<Props> = ({ children, style, ...otherProps }) => {
   if (Platform.OS !== 'android') {
     return (
@@ -38,13 +57,8 @@ export const ShadowView: FC<Props> = ({ children, style, ...otherProps }) => {
       </View>
     );
   }
-  const flattenStyles = StyleSheet.flatten(style);
-  const shadowStyle: ShadowProps = {
-    shadowColor: processColor(flattenStyles.shadowColor),
-    shadowOffset: flattenStyles.shadowOffset,
-    shadowOpacity: flattenStyles.shadowOpacity,
-    shadowRadius: flattenStyles.shadowRadius,
-  };
+  const flattenStyles = StyleSheet.flatten(style ?? {});
+  const shadowStyle: ShadowProps = getShadowPropsFromStyle(flattenStyles);
 
   if (
     flattenStyles.borderRadius ||
