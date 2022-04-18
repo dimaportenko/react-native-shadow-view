@@ -44,7 +44,7 @@ describe('getShadowPropsFromStyle function test', () => {
     });
   });
 
-  test('return black shadow property if not set but shadowOffset is presented', () => {
+  test('return black shadow color property if not set but shadowOffset is presented', () => {
     const result = getShadowPropsFromStyle({
       shadowOffset: {
         width: -4,
@@ -62,7 +62,7 @@ describe('getShadowPropsFromStyle function test', () => {
     });
   });
 
-  test('return black shadow property if not set but shadowOffset is presented', () => {
+  test('return black shadow color property if not set but shadowOpacity is presented', () => {
     const result = getShadowPropsFromStyle({
       shadowOpacity: 1,
     });
@@ -74,7 +74,7 @@ describe('getShadowPropsFromStyle function test', () => {
     });
   });
 
-  test('return black shadow property if not set but shadowRadius is presented', () => {
+  test('return black shadow color property if not set but shadowRadius is presented', () => {
     const result = getShadowPropsFromStyle({
       shadowRadius: 4,
     });
