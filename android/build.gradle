@@ -26,6 +26,11 @@ def getExtOrIntegerDefault(name) {
 }
 
 android {
+  def agpVersion = com.android.Version.ANDROID_GRADLE_PLUGIN_VERSION
+  if (agpVersion.tokenize('.')[0].toInteger() >= 7) {
+      namespace "com.reactnativeshadowview"
+  }
+
   compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
   buildToolsVersion getExtOrDefault('buildToolsVersion')
   defaultConfig {
@@ -122,10 +127,11 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault('kotlinVersion')
+def ktx_version = getExtOrDefault('ktxVersion')
 
 dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation "androidx.core:core-ktx:$kotlin_version"
+  implementation "androidx.core:core-ktx:$ktx_version"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@dimaportenko/react-native-shadow-view",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "React Native library with Android native view which supports same shadows styles as iOS ",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -37,7 +37,7 @@
     "android"
   ],
   "repository": "https://github.com/dimaportenko/react-native-shadow-view",
-  "author": "Dima Portenko <dvportenko@gmail.com> (https://github.com/dimaportenko)",
+  "author": "Dima Portenko (https://github.com/dimaportenko)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/dimaportenko/react-native-shadow-view/issues"

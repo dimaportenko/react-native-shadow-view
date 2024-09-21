@@ -260,7 +260,7 @@ open class ShadowLayout @JvmOverloads constructor(
             shadow_y_shift / shadow_downscale / cssRatio
         )
 
-    override fun draw(canvas: Canvas?) {
+    override fun draw(canvas: Canvas) {
         canvas ?: return
         if (isInEditMode) {
             super.draw(canvas)
@@ -272,7 +272,7 @@ open class ShadowLayout @JvmOverloads constructor(
                 if (shadow_cast_only_background) {
                     background.bounds = viewBounds
                     background?.draw(blurCanvas!!)
-                } else super.draw(blurCanvas)
+                } else super.draw(blurCanvas!!)
             }
             if (realRadius > 0f) { // Do not blur if no radius
                 val (script) = getScript()
@@ -289,3 +289,4 @@ open class ShadowLayout @JvmOverloads constructor(
     }
 
 }
+
